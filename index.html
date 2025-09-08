@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumora</title>
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- GSAP ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Icons -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      defer
+    ></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-screen flex justify-around items-center bg-[#0E291A] text-white px-4 py-3 z-50 transition-all"
+    >
+      <!-- Left Links (Desktop) -->
+      <div class="hidden md:flex justify-center items-center">
+        <ul class="flex gap-20">
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">PROJECTS</a></li>
+        </ul>
+      </div>
+
+      <!-- Logo -->
+      <div class="logo w-[180px] md:w-[250px] h-[50px] md:h-[69px]">
+        <img src="./images/lumoraLogo.png" alt="lumora" class="w-full h-full" />
+      </div>
+
+      <!-- Right Links (Desktop) -->
+      <div class="hidden md:flex justify-center items-center">
+        <ul class="flex gap-20">
+          <li><a href="#">AMENITIES</a></li>
+          <li><a href="#">CONTACT US</a></li>
+          <li><a href="#">GALLERY</a></li>
+        </ul>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobileMenu"
+      class="fixed top-0 left-0 w-full bg-[#0E291A] text-white hidden flex-col items-center gap-6 py-10 z-40"
+    >
+      <button id="closeMenu" class="absolute top-4 right-6 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul class="flex flex-col gap-6 mt-8 text-lg">
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">PROJECTS</a></li>
+        <li><a href="#">AMENITIES</a></li>
+        <li><a href="#">CONTACT US</a></li>
+        <li><a href="#">GALLERY</a></li>
+      </ul>
+    </div>
+
+    <!-- Dummy content for scroll -->
+    <main class="mt-16 bg-[#FFFFFF]">
+      <section
+        class="s1 min-h-[100vh] w-screen flex items-center pl-6 md:pl-20"
+        style="
+          background-image: url(./images/s1/sec1Bg.png);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        "
+      >
+        <div
+          class="bg-[#0E291AA6] p-6 md:p-10 flex flex-col justify-center w-[90%] sm:w-[500px] md:w-[600px] h-auto md:h-[408px]"
+        >
+          <h1
+            class="uppercase font-[700] text-[#FFFFFF] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] leading-tight"
+            style="font-family: CazelBold"
+          >
+            Green is the new luxury
+          </h1>
+          <p
+            class="mt-4 text-[#FFFFFF] font-[300] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px]"
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s,
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2 Is Starting From Here  -->
+      <section
+        class="s2 w-screen min-h-[80vh] bg-[#FEF4E3] relative px-6 md:pl-20 py-12"
+      >
+        <div class="flex flex-col md:flex-row gap-8 md:gap-12">
+          <!-- Left Side Image Div  -->
+          <div class="img w-full max-w-[586px] h-auto">
+            <img
+              class="w-full h-auto object-contain"
+              src="./images/s2/lumS2I1.png"
+              alt="lumora"
+            />
+          </div>
+
+          <!-- Right Side Content Div  -->
+          <div
+            class="max-w-[554px] text-center md:text-left space-y-4 flex flex-col gap-4"
+          >
+            <p
+              class="text-[#0E291A] text-[18px] md:text-[20px] font-[400]"
+              style="font-family: CazelRegular"
+            >
+              About lumoraestates
+            </p>
+            <h2
+              class="text-[#0E291A] text-[46px] uppercase font-[700] leading-tight"
+              style="font-family: CazelBold"
+            >
+              Elevate Your Living Experience
+            </h2>
+            <p class="text-[#00000099] font-[300] leading-[32px] text-[16px]">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting. Lorem Ipsum is simply dummy text of the
+              printing and typesetting industry.
+            </p>
+            <button
+              style="font-family: CazelRegular"
+              class="mt-4 w-[198px] px-6 py-3 bg-[#0E291A] text-[#C89A6B] text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] transition-all"
+            >
+              Explore Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Absolute Position Div (kept on large screens, hidden or moved for small) -->
+        <div class="absolute right-52 bottom-2 hidden sm:block">
+          <img
+            src="./images/s2/lumS2Circle.png"
+            alt="lumora"
+            class="w-[150px] sm:w-[180px] md:w-[215px] h-auto"
+          />
+        </div>
+      </section>
+
+     <!-- Section 3 Is Starting From Here  -->
+<section
+  class="s3 w-screen min-h-screen p-6 sm:p-8 md:p-10 bg-[#FFFFFF] flex flex-col md:flex-row relative"
+>
+  <!-- Left Side -->
+  <div
+    class="left w-full h-[70px] sm:h-[88px] md:w-[88px] md:h-screen bg-[#C89A6B]"
+  ></div>
+
+  <!-- Right Side -->
+  <div
+    class="right flex-1 flex flex-col md:flex-row justify-end items-center md:items-start h-[calc(100vh-70px)] sm:h-[calc(100vh-88px)] md:h-screen bg-cover bg-center p-4 sm:p-6 relative"
+    style="background-image: url('./images/s3/lumS3B.png')"
+  >
+    <!-- Map Image -->
+    <div class="mapImg z-[40] max-w-[95%] sm:max-w-[85%] md:max-w-[70%]">
+      <img
+        src="./images/s3/lumS3Map.png"
+        alt="map"
+        class="w-full h-auto object-contain"
+      />
+    </div>
+
+    <!-- Dark Overlay -->
+    <div
+      class="darkOverlay absolute top-0 left-0 bg-[#0F100F94] h-full w-full z-[10]"
+    ></div>
+
+    <!-- List + Button -->
+    <div
+      class="relative md:absolute md:top-16 md:left-[-50px] flex flex-col gap-4 sm:gap-6 md:gap-8 z-[50] max-w-[92%] sm:max-w-[400px] mt-6 md:mt-0"
+    >
+      <div class="list">
+        <ul class="flex flex-col gap-4 sm:gap-6 md:gap-[30px]">
+          <li style="font-family: CazelBold" class="flex gap-2 sm:gap-3 md:gap-4 items-start">
+            <p class="font-[700] text-[20px] sm:text-[28px] md:text-[36px] text-white">01</p>
+            <p class="font-[700] text-[14px] sm:text-[18px] md:text-[24px] text-white leading-snug">
+              Entranace Plaza
+            </p>
+          </li>
+          <li style="font-family: CazelBold" class="flex gap-2 sm:gap-3 md:gap-4 items-start">
+            <p class="font-[700] text-[20px] sm:text-[28px] md:text-[36px] text-white">02</p>
+            <p class="font-[700] text-[14px] sm:text-[18px] md:text-[24px] text-white leading-snug">
+              VILLA
+            </p>
+          </li>
+          <li style="font-family: CazelBold" class="flex gap-2 sm:gap-3 md:gap-4 items-start">
+            <p class="font-[700] text-[20px] sm:text-[28px] md:text-[36px] text-white">03</p>
+            <p class="font-[700] text-[14px] sm:text-[18px] md:text-[24px] text-white leading-snug">
+              CLAB
+            </p>
+          </li>
+          <li style="font-family: CazelBold" class="flex gap-2 sm:gap-3 md:gap-4 items-start">
+            <p class="font-[700] text-[20px] sm:text-[28px] md:text-[36px] text-white">04</p>
+            <p class="font-[700] text-[14px] sm:text-[18px] md:text-[24px] text-white leading-snug">
+              Quality and Innovation
+            </p>
+          </li>
+          <li style="font-family: CazelBold" class="flex gap-2 sm:gap-3 md:gap-4 items-start">
+            <p class="font-[700] text-[20px] sm:text-[28px] md:text-[36px] text-white">05</p>
+            <p class="font-[700] text-[14px] sm:text-[18px] md:text-[24px] text-white leading-snug">
+              Contrary to popular belief
+            </p>
+          </li>
+          <li style="font-family: CazelBold" class="flex gap-2 sm:gap-3 md:gap-4 items-start">
+            <p class="font-[700] text-[20px] sm:text-[28px] md:text-[36px] text-white">06</p>
+            <p class="font-[700] text-[14px] sm:text-[18px] md:text-[24px] text-white leading-snug">
+              Lorem Ipsum is simply dummy text
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Button -->
+      <div class="btn flex justify-start sm:justify-center items-center">
+        <button
+          style="font-family: CazelRegular"
+          class="mt-2 sm:mt-4 w-[140px] sm:w-[170px] md:w-[198px] px-4 sm:px-5 md:px-6 py-2 sm:py-3 text-white border border-white text-[13px] sm:text-[15px] md:text-[18px] font-[500] hover:bg-white hover:text-[#0E291A] transition-all"
+        >
+          Explore Now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 4 Is Starting From Here  -->
+<section
+  class="s4 w-screen min-h-screen flex flex-col py-4 gap-20 items-end relative overflow-hidden"
+>
+  <!-- Top Header Div  -->
+  <div
+    class="w-full h-[164px] bg-[#0E291A] flex items-center justify-end relative pr-4 sm:pr-10 lg:pr-20"
+    style="
+      background-image: url(./images/s4/lumS4Tap.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    "
+  >
+    <div class="absolute left-6 sm:left-20 top-1/2 -translate-y-1/2">
+      <p class="font-[300] text-[14px] sm:text-[16px] text-[#FFFFFF]">
+        Exclusive Collection
+      </p>
+      <h2
+        style="font-family: CazelBold"
+        class="text-[24px] sm:text-[28px] lg:text-[32px] font-[700] text-[#FFFFFF]"
+      >
+        Luxury Brochure
+      </h2>
+    </div>
+    <div>
+      <button
+        style="font-family: CazelRegular"
+        class="mt-4 w-[120px] sm:w-[180px] md:w-[198px] px-3 py-2 sm:py-3 border border-[#C89A6B] text-[#C89A6B] text-[14px] sm:text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] transition-all"
+      >
+        Download Now
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Slider Container  -->
+  <div class="main w-full max-w-[1250px] px-4 sm:px-6 lg:px-0 flex flex-col gap-6">
+    <div class="top">
+      <p
+        class="text-[#C89A6B] font-[400] text-[16px] sm:text-[20px]"
+        style="font-family: PlaRegular"
+      >
+        Our Project
+      </p>
+      <h2
+        style="font-family: CazelBold"
+        class="text-[28px] sm:text-[36px] lg:text-[46px] font-[700] text-[#0E291A]"
+      >
+        Exclusive Club Amenities
+      </h2>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider flex gap-4 relative overflow-hidden">
+      <div class="slides flex gap-4">
+        <!-- Card 1 -->
+        <div class="sliderCard w-[280px] sm:w-[350px] lg:w-[452px] cursor-pointer h-[400px] sm:h-[500px] lg:h-[592px] relative shrink-0">
+          <img
+            src="./images/s4/slider/lumSliderI1.png"
+            alt="lumora"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="h-full w-full pb-4 flex justify-center items-end absolute bottom-0 left-0"
+            style="
+              background-image: url(./images/s4/slider/sliderOverlay.png);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            "
+          >
+            <p
+              style="font-family: PlaRegular"
+              class="font-[400] text-[16px] sm:text-[20px] text-[#FFFFFF]"
+            >
+              Yoga & Meditation Room
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="sliderCard w-[280px] sm:w-[350px] lg:w-[452px] h-[400px] sm:h-[500px] lg:h-[592px] relative shrink-0">
+          <img
+            src="./images/s4/slider/lumSliderI2.png"
+            alt="lumora"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Card 3 -->
+        <div class="sliderCard w-[280px] sm:w-[350px] lg:w-[452px] h-[400px] sm:h-[500px] lg:h-[592px] relative shrink-0">
+          <img
+            src="./images/s4/slider/lumSliderI1.png"
+            alt="lumora"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btns flex gap-4 mt-4">
+      <button id="leftBtn" class="lft">
+        
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="80" height="80" rx="40" transform="matrix(0 1 1 0 0 0)" fill="#C89A6B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M28.0865 39.3375C27.9109 39.5133 27.8123 39.7516 27.8123 40C27.8123 40.2485 27.9109 40.4868 28.0865 40.6625L36.8202 49.4125C36.9067 49.5021 37.0101 49.5736 37.1244 49.6228C37.2388 49.672 37.3618 49.6979 37.4863 49.699C37.6107 49.7002 37.7342 49.6765 37.8494 49.6294C37.9647 49.5823 38.0694 49.5128 38.1574 49.4248C38.2455 49.3368 38.3152 49.2322 38.3624 49.117C38.4096 49.0018 38.4333 48.8783 38.4323 48.7539C38.4313 48.6294 38.4055 48.5064 38.3564 48.392C38.3073 48.2776 38.236 48.1741 38.1465 48.0875L31.0115 40.9388L51.249 40.9525C51.4976 40.9529 51.7362 40.8544 51.9122 40.6788C52.0883 40.5033 52.1874 40.2649 52.1877 40.0163C52.188 39.7677 52.0896 39.5291 51.914 39.353C51.7384 39.177 51.5001 39.0779 51.2515 39.0775L31.009 39.065L38.1477 31.9125C38.2372 31.826 38.3086 31.7225 38.3577 31.6081C38.4067 31.4937 38.4325 31.3707 38.4336 31.2462C38.4346 31.1217 38.4108 30.9983 38.3636 30.8831C38.3164 30.7679 38.2468 30.6633 38.1587 30.5753C38.0706 30.4873 37.9659 30.4178 37.8507 30.3707C37.7355 30.3236 37.612 30.2999 37.4875 30.3011C37.363 30.3022 37.24 30.3281 37.1257 30.3773C37.0113 30.4265 36.9079 30.498 36.8215 30.5875L28.0865 39.3375Z" fill="black"/>
+</svg>
+
+      </button>
+      <button id="rightBtn" class="rght">
+     
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="80" width="80" height="80" rx="40" transform="rotate(90 80 0)" fill="#C89A6B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M51.9135 39.3375C52.0891 39.5133 52.1877 39.7516 52.1877 40C52.1877 40.2485 52.0891 40.4868 51.9135 40.6625L43.1798 49.4125C43.0933 49.5021 42.9899 49.5736 42.8756 49.6228C42.7612 49.672 42.6382 49.6979 42.5137 49.699C42.3893 49.7002 42.2658 49.6765 42.1506 49.6294C42.0353 49.5823 41.9306 49.5128 41.8426 49.4248C41.7545 49.3368 41.6848 49.2322 41.6376 49.117C41.5904 49.0018 41.5667 48.8783 41.5677 48.7539C41.5687 48.6294 41.5945 48.5064 41.6436 48.392C41.6927 48.2776 41.764 48.1741 41.8535 48.0875L48.9885 40.9388L28.751 40.9525C28.5024 40.9529 28.2638 40.8544 28.0878 40.6788C27.9117 40.5033 27.8126 40.2649 27.8123 40.0163C27.812 39.7677 27.9104 39.5291 28.086 39.353C28.2616 39.177 28.4999 39.0779 28.7485 39.0775L48.991 39.065L41.8523 31.9125C41.7628 31.826 41.6914 31.7225 41.6423 31.6081C41.5933 31.4937 41.5675 31.3707 41.5664 31.2462C41.5654 31.1217 41.5892 30.9983 41.6364 30.8831C41.6836 30.7679 41.7532 30.6633 41.8413 30.5753C41.9294 30.4873 42.0341 30.4178 42.1493 30.3707C42.2645 30.3236 42.388 30.2999 42.5125 30.3011C42.637 30.3022 42.76 30.3281 42.8743 30.3773C42.9887 30.4265 43.0921 30.498 43.1785 30.5875L51.9135 39.3375Z" fill="black"/>
+</svg>
+
+      </button>
+    </div>
+  </div>
+
+  <!-- Absolute Position Div -->
+  <div class="imgCrcle absolute bottom-0 left-[-250px]">
+    <img src="./images/circl2.png" alt="lumora" class="h-[250px] sm:h-[400px] lg:h-[507px]" />
+  </div>
+</section>
+
+      <!-- Section 5 Is Starting From Here  -->
+      <section class="s5 w-screen pt-20 md:pt-10 pb-10 min-h-[110vh] ">
+        <div
+          class="h-full w-full relative overflow-hidden flex justify-center items-center px-4 sm:px-8 md:rounded-tr-[244px] md:rounded-bl-[244px]"
+          style="
+            background-image: url(./images/s5/s5Bg.png);
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+          "
+        >
+          <!-- Center Content  -->
+          <div
+            class="flex flex-col items-center z-[60] gap-10 w-full max-w-[1200px]"
+          >
+            <!-- 1st Div -->
+            <div
+              class="text-center flex flex-col items-center gap-4 w-full max-w-[900px]"
+            >
+              <h2
+                style="font-family: CazelBold"
+                class="font-[700] text-[28px] sm:text-[36px] md:text-[42px] lg:text-[46px] text-white leading-tight"
+              >
+                A Sovereign Sanctuary
+              </h2>
+              <p
+                class="font-[400] text-[14px] sm:text-[15px] md:text-[16px] text-white opacity-90 leading-relaxed px-2 sm:px-4"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived no.
+              </p>
+              <button
+                style="font-family: CazelRegular"
+                class="mt-4 w-[160px] sm:w-[180px] md:w-[198px] px-5 py-2 sm:px-6 sm:py-3 border border-white text-white text-[14px] sm:text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] hover:border-[#153e26] transition-all duration-300 rounded-md"
+              >
+                Read More
+              </button>
+            </div>
+
+            <!-- 2nd Div (Features Grid) -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full rounded-lg overflow-hidden"
+            >
+              <!-- Row 1 -->
+              <div
+                class="flex flex-col justify-center items-center text-center border-b border-r border-[#F2F2F233] p-6"
+              >
+                <h2
+                  style="font-family: CazelRegular"
+                  class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] text-white"
+                >
+                  80+ <br />
+                  Villas
+                </h2>
+              </div>
+              <div
+                class="flex flex-col justify-center items-center text-center border-b border-r border-[#F2F2F233] p-6"
+              >
+                <h2
+                  style="font-family: CazelRegular"
+                  class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] text-white"
+                >
+                  Kitchen <br />
+                  Garden
+                </h2>
+              </div>
+              <div
+                class="flex flex-col justify-center items-center text-center border-b border-[#F2F2F233] p-6"
+              >
+                <h2
+                  style="font-family: CazelRegular"
+                  class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] text-white"
+                >
+                  Open <br />
+                  Shower
+                </h2>
+              </div>
+
+              <!-- Row 2 -->
+              <div
+                class="flex flex-col justify-center items-center text-center border-r border-[#F2F2F233] p-6"
+              >
+                <h2
+                  style="font-family: CazelRegular"
+                  class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] text-white"
+                >
+                  Private <br />
+                  Greenery
+                </h2>
+              </div>
+              <div
+                class="flex flex-col justify-center items-center text-center border-r border-[#F2F2F233] p-6"
+              >
+                <h2
+                  style="font-family: CazelRegular"
+                  class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] text-white"
+                >
+                  Private <br />
+                  Pools
+                </h2>
+              </div>
+              <div
+                class="flex flex-col justify-center items-center text-center p-6"
+              >
+                <h2
+                  style="font-family: CazelRegular"
+                  class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] text-white"
+                >
+                  Natural <br />
+                  Water Bodies
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overlay Image -->
+          <img
+            src="./images/s5/s5Overlay.png"
+            alt="lumora"
+            class="absolute bottom-0 left-0 w-full h-full z-[50] object-cover"
+          />
+        </div>
+      </section>
+
+      <!-- Section 6 Is Starting From Here  -->
+      <section
+        class="s6 w-screen min-h-screen bg-[#F8F8F8] flex justify-center px-4 sm:px-6 lg:px-12 py-12"
+      >
+        <div class="flex flex-col gap-16 w-full max-w-[1300px]">
+          <!-- Row 1 -->
+          <div class="flex flex-col gap-8">
+            <!-- Heading -->
+            <div class="max-w-2xl">
+              <h2
+                style="font-family: CazelBold"
+                class="text-[#0E291A] text-[32px] sm:text-[40px] md:text-[46px] font-[700] leading-tight"
+              >
+                Key Features
+              </h2>
+              <p
+                class="font-[400] text-[14px] sm:text-[15px] md:text-[16px] text-[#0E291A] mt-2"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's
+              </p>
+            </div>
+
+            <!-- Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  24/7 Security Surveillance
+                </p>
+              </div>
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Smart Home Systems
+                </p>
+              </div>
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Private Green Spaces
+                </p>
+              </div>
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Luxury Clubhouse
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="flex flex-col gap-8 items-end text-right">
+            <!-- Heading -->
+            <div class="max-w-2xl">
+              <h2
+                style="font-family: CazelBold"
+                class="text-[#0E291A] text-[32px] sm:text-[40px] md:text-[46px] font-[700] leading-tight"
+              >
+                Key Features
+              </h2>
+              <p
+                class="font-[400] text-[14px] sm:text-[15px] md:text-[16px] text-[#0E291A] mt-2"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's
+              </p>
+            </div>
+
+            <!-- Cards -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full"
+            >
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Community Park
+                </p>
+              </div>
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Spa & Wellness Center
+                </p>
+              </div>
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Sports Facilities
+                </p>
+              </div>
+              <div
+                class="card bg-white h-[229px] p-6 flex flex-col justify-center items-center text-center gap-4 hover:shadow-xl transition-all"
+              >
+                <img
+                  src="./images/s6/s6Icn1.png"
+                  alt="lumora"
+                  class="w-12 h-12"
+                />
+                <p class="font-[400] text-[16px] sm:text-[18px] text-[#000000]">
+                  Natural Water Features
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3 (Side Images) -->
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-6"
+          >
+            <div class="img flex-1 w-full">
+              <img
+                src="./images/s6/lumS6I1.png"
+                alt="lumora"
+                class="w-full h-auto"
+              />
+            </div>
+            <div class="img flex-1 w-full">
+              <img
+                src="./images/s6/lumS6I2.png"
+                alt="lumora"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7 Is Starting From Here  -->
+      <section
+        class="s7 w-screen min-h-screen flex flex-col lg:flex-row justify-center relative py-20 gap-8"
+      >
+        <!-- Left Image -->
+        <div class="img w-full lg:w-[711px] flex justify-start">
+          <img
+            src="./images/s7/lumS7I1.png"
+            alt="lumora"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+
+        <!-- Right Content -->
+        <div
+          class="w-full lg:w-[524px] flex flex-col justify-center gap-6 text-center lg:text-left"
+        >
+          <p
+            style="font-family: CazelRegular"
+            class="text-[#0E291A] font-[400] text-[18px] md:text-[20px]"
+          >
+            About lumoraestates
+          </p>
+          <h2
+            style="font-family: CazelBold"
+            class="font-[700] text-[30px] md:text-[36px] lg:text-[46px] text-[#0E291A] leading-snug"
+          >
+            Elevate Your Living Experience
+          </h2>
+          <p
+            class="text-[14px] md:text-[16px] font-[300] leading-[26px] md:leading-[32px] text-[#00000099]"
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic.
+          </p>
+          <p
+            class="text-[14px] md:text-[16px] font-[300] leading-[26px] md:leading-[32px] text-[#00000099]"
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
+
+          <button
+            style="font-family: CazelRegular"
+            class="mt-4 w-[180px] md:w-[198px] px-6 py-3 bg-[#0E291A] text-[#C89A6B] text-[14px] md:text-[16px] lg:text-[18px] font-[500] hover:bg-[#153e26] transition-all duration-300 self-center lg:self-start"
+          >
+            Explore Now
+          </button>
+        </div>
+
+        <!-- Decorative Circle (absolute for large, reposition on small) -->
+        <div class="absolute right-[10rem] top-4 hidden sm:block">
+          <img
+            src="./images/s2/lumS2Circle.png"
+            alt="lumora"
+            class="w-[100px] sm:w-[150px] md:w-[180px] lg:w-[215px] h-auto"
+          />
+        </div>
+      </section>
+
+      <!-- Section 8 Is Starting From Here  -->
+      <section
+        class="s8 bg-[#0E291A] w-screen min-h-[30vh] flex justify-center py-12 px-4"
+      >
+        <div class="flex flex-col gap-8 w-full max-w-[1300px]">
+          <!-- Top Container -->
+          <div
+            class="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12"
+          >
+            <!-- Left Title -->
+            <div class="text-center lg:text-left">
+              <h1
+                style="font-family: CazelBold"
+                class="text-[#C89A6B] font-[700] text-[32px] md:text-[40px] lg:text-[46px]"
+              >
+                Floor Plan
+              </h1>
+            </div>
+
+            <!-- Right Info Box -->
+            <div
+              class="w-full sm:w-[345px] bg-[#6E7F76] p-4 sm:p-6 text-center lg:text-left"
+            >
+              <p
+                style="font-family: PlaBold"
+                class="font-[700] text-[#FFFFFF] text-[18px] md:text-[20px] lg:text-[24px]"
+              >
+                Plot Area:
+                <span style="font-family: PlaRegular" class="font-[400]"
+                  >9000 sq ft</span
+                >
+              </p>
+              <p
+                style="font-family: PlaBold"
+                class="font-[700] text-[#FFFFFF] text-[18px] md:text-[20px] lg:text-[24px]"
+              >
+                Built Up Area:
+                <span style="font-family: PlaRegular" class="font-[400]"
+                  >2135 sq ft</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- Main Div (Images) -->
+          <div
+            class="w-full flex flex-col md:flex-row justify-center items-center gap-6"
+          >
+            <div
+              class="img w-full md:w-1/2 h-auto border-[5px] border-[#FFFFFF] flex justify-center"
+            >
+              <img
+                src="./images/s8/lumS8I1.png"
+                class="w-full max-w-[641px] object-cover"
+                alt="lumora"
+              />
+            </div>
+            <div class="img w-full md:w-1/2 h-auto flex justify-center">
+              <img
+                src="./images/s8/lumS8I2.png"
+                class="w-full max-w-[641px] object-cover"
+                alt="lumora"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 9 Is Starting From Here  -->
+      <section class="s9 flex flex-col w-screen min-h-screen">
+        <!-- Top Div -->
+        <div class="w-full">
+          <img
+            src="./images/s9/lumS9I1.png"
+            class="w-full h-auto object-cover"
+            alt="lumora"
+          />
+        </div>
+
+        <!-- Bottom Div -->
+        <div class="w-full flex flex-col lg:flex-row">
+          <!-- Left Card (Text) -->
+          <div
+            class="card flex-1 min-h-[400px] lg:h-[537px] bg-[#0E291A] flex justify-center items-center p-6 md:p-10"
+          >
+            <div class="text-center lg:text-center max-w-[600px]">
+              <p
+                style="font-family: PlaRegular"
+                class="font-[400] text-[18px] md:text-[20px] text-[#C89A6B]"
+              >
+                About The
+              </p>
+              <h2
+                style="font-family: PlaBold"
+                class="font-[700] text-[32px] md:text-[40px] lg:text-[48px] text-[#C89A6B] mb-4"
+              >
+                Architect
+              </h2>
+              <p
+                class="text-[14px] md:text-[16px] font-[300] text-[#FFFFFF99] leading-[26px] mb-3"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy.
+              </p>
+              <p
+                class="text-[14px] md:text-[16px] font-[300] text-[#FFFFFF99] leading-[26px] mb-3"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it.
+              </p>
+              <p
+                class="text-[14px] md:text-[16px] font-[300] text-[#FFFFFF99] leading-[26px]"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Card (Image) -->
+          <div
+            class="card flex-1 min-h-[300px] lg:min-h-[537px] max-h-[600px] overflow-hidden"
+          >
+            <img
+              src="./images/s9/s9Lumi2.png"
+              class="w-full h-full object-cover"
+              alt="lumora"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10 Is Starting From Here  -->
+      <section
+        class="s10 w-screen min-h-[70vh] relative flex justify-center items-center py-12 px-4"
+      >
+        <!-- Absolute Positioned Ellipse -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[70%] lg:w-[50%] opacity-30 pointer-events-none"
+        >
+          <img
+            src="./images/s10/s10Elips.png"
+            alt="lumora"
+            class="w-full h-auto"
+          />
+        </div>
+
+        <!-- Cards + Center Icon -->
+        <div
+          class="flex flex-col lg:flex-row justify-center items-center gap-8 w-full max-w-[1310px] relative z-10"
+        >
+          <!-- Left Card -->
+          <div
+            class="card relative bg-[#FFFFFF] shadow-lg p-6 w-full sm:w-[80%] md:w-[70%] lg:w-[453px] h-[395px] flex flex-col items-center text-center"
+          >
+            <!-- Floating Image -->
+            <div
+              class="img absolute -top-12 left-1/2 -translate-x-1/2 w-[120px] md:w-[150px]"
+            >
+              <img
+                src="./images/s10/lumS10I1.png"
+                alt="lumora"
+                class="w-full h-auto"
+              />
+            </div>
+            <p
+              class="mt-[10rem] font-[300] text-[#00000099] text-[16px] md:text-[18px] leading-relaxed"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it.
+            </p>
+          </div>
+
+          <!-- Center Icon -->
+          <div class="flex justify-center items-center">
+            <img
+              src="./images/s10/lumS10Group.png"
+              alt="lumora"
+              class="mt-4 mb-[4rem]  w-[368px] h-[563px]"
+            />
+          </div>
+
+          <!-- Right Card -->
+          <div
+            class="card relative bg-[#FFFFFF] shadow-lg p-6 w-full sm:w-[80%] md:w-[70%] lg:w-[453px] h-[395px] flex flex-col items-center text-center"
+          >
+            <!-- Floating Image -->
+            <div
+              class="img absolute -top-12 left-1/2 -translate-x-1/2 w-[120px] md:w-[150px]"
+            >
+              <img
+                src="./images/s10/lumS10I2.png"
+                alt="lumora"
+                class="w-full h-auto"
+              />
+            </div>
+            <p
+              class="mt-[10rem] font-[300] text-[#00000099] text-[16px] md:text-[18px] leading-relaxed"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

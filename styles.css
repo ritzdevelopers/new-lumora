@@ -1,0 +1,42 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: #0e291a; /* Matches navbar background */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1f4630; /* Slightly lighter for contrast */
+  border-radius: 8px;
+  border: 2px solid #0e291a; /* Creates padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2e6446; /* Hover effect */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+@font-face {
+  font-family: "CazelBold";
+  src: url(./Cinzel/static/Cinzel-Bold.ttf);
+}
+@font-face {
+  font-family: "CazelRegular";
+  src: url(./Cinzel/static/Cinzel-Regular.ttf);
+}
+@font-face {
+  font-family: "PlaRegular";
+  src: url(./static/PlayfairDisplay-Regular.ttf);
+}
+
+@font-face {
+  font-family: "PlaBold";
+  src: url(./static/PlayfairDisplay-Bold.ttf);
+}
