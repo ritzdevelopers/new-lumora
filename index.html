@@ -56,9 +56,9 @@
       >
         <div class="flex flex-col md:flex-row gap-8 md:gap-12">
           <!-- Left Side Image Div  -->
-          <div class="img w-full max-w-[586px] h-auto">
+          <div class="img w-full hidden xl:block max-w-[586px] h-[568.99px]">
             <img
-              class="w-full h-auto object-contain"
+              class="w-full h-full xl:object-contain"
               src="./images/s2/lumS2I1.png"
               alt="lumora"
             />
@@ -99,11 +99,11 @@
         </div>
 
         <!-- Absolute Position Div (kept on large screens, hidden or moved for small) -->
-        <div class="absolute right-52 bottom-2 hidden sm:block">
+        <div class="absolute right-6 2xl:right-52 md:bottom-2 bottom-0 xl:bottom-2 hidden sm:block">
           <img
             src="./images/s2/lumS2Circle.png"
             alt="lumora"
-            class="w-[150px] sm:w-[180px] md:w-[215px] h-auto"
+            class="w-[150px] sm:w-[150px] md:w-[180px] xl:w-[215px] h-auto"
           />
         </div>
       </section>
@@ -819,7 +819,7 @@
         </div>
 
         <!-- Absolute Position Div -->
-        <div class="imgCrcle absolute bottom-0 left-[-250px]">
+        <div class="imgCrcle absolute hidden 2xl:block bottom-0 left-[-250px]">
           <img
             src="./images/circl2.png"
             alt="lumora"
@@ -831,7 +831,7 @@
       <!-- Section 5 Is Starting From Here  -->
       <section class="s5 w-screen pt-10 pb-10 lg:h-[120vh]">
         <div
-          class="h-full w-full relative overflow-hidden flex justify-center items-center px-4 sm:px-8 md:rounded-tr-[244px] md:rounded-bl-[244px]"
+          class="h-full w-full relative overflow-hidden flex justify-center items-center px-4 sm:px-8 lg:rounded-tr-[244px] lg:rounded-bl-[244px]"
           style="
             background-image: url(./images/s5/s5Bg.png);
             background-position: top;
@@ -845,7 +845,7 @@
           >
             <!-- 1st Div -->
             <div
-              class="text-center mt-20 md:mt-0 flex flex-col items-center gap-4 w-full max-w-[900px]"
+              class="text-center mt-20 lg:mt-0 flex flex-col items-center gap-4 w-full max-w-[900px]"
             >
               <h2
                 style="font-family: CazelBold"
@@ -864,7 +864,7 @@
               </p>
               <button
                 style="font-family: CazelRegular"
-                class="mt-4 w-[160px] sm:w-[180px] md:w-[198px] px-5 py-2 sm:px-6 sm:py-3 border border-white text-white text-[14px] sm:text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] hover:border-[#153e26] transition-all duration-300 rounded-md"
+                class="mt-4 w-[160px] sm:w-[180px] md:w-[198px] px-5 py-2 sm:px-6 sm:py-3 border border-white text-white text-[14px] sm:text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] hover:border-[#153e26] transition-all duration-300 "
               >
                 Read More
               </button>
@@ -1181,7 +1181,7 @@
         </div>
 
         <!-- Decorative Circle (absolute for large, reposition on small) -->
-        <div class="absolute right-[10rem] top-4 hidden sm:block">
+        <div class="absolute right-[10rem] top-4 hidden 2xl:block">
           <img
             src="./images/s2/lumS2Circle.png"
             alt="lumora"
@@ -1273,7 +1273,7 @@
       </section>
 
       <!-- Section 9 Is Starting From Here  -->
-      <section class="s9 flex flex-col w-screen min-h-screen">
+      <section class="s9 flex flex-col w-screen min-h-[10vh]">
         <!-- Top Div -->
         <div class="w-full">
           <img
@@ -1358,7 +1358,7 @@
           >
             <!-- Floating Image -->
             <div
-              class="img absolute -top-12 left-1/2 -translate-x-1/2 w-[120px] md:w-[150px]"
+              class="img absolute md:-top-12 left-1/2 -translate-x-1/2 w-[120px] md:w-[150px]"
             >
               <img
                 src="./images/s10/lumS10I1.png"
@@ -1391,7 +1391,7 @@
           >
             <!-- Floating Image -->
             <div
-              class="img absolute -top-12 left-1/2 -translate-x-1/2 w-[120px] md:w-[150px]"
+              class="img absolute md:-top-12 left-1/2 -translate-x-1/2 w-[120px] md:w-[150px]"
             >
               <img
                 src="./images/s10/lumS10I2.png"
