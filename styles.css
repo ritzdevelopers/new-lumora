@@ -40,3 +40,15 @@ body {
   font-family: "PlaBold";
   src: url(./static/PlayfairDisplay-Bold.ttf);
 }
+
+.circularDesign {
+  animation: circleRotation 20s linear infinite;
+}
+@keyframes circleRotation {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
