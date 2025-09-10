@@ -111,7 +111,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // Staggered inner elements (p, h2, paragraph, button)
-  gsap.from(".s2Content > *", {
+  gsap.from(".s2Content > p, h2", {
     y: 30,
     opacity: 0,
     duration: 0.6,
@@ -274,4 +274,78 @@ window.addEventListener("DOMContentLoaded", () => {
       gsap.to(btn, { scale: 1, duration: 0.2 });
     });
   }
+});
+
+
+// Modal elements
+const modal = document.getElementById("imageModal");
+const openBtn = document.getElementById("openModalBtn");
+const closeBtn = document.getElementById("closeModalBtn");
+
+// Open modal with GSAP animation
+openBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+  gsap.from("#imageModal img", {
+    duration: 0.8,
+    opacity: 0,
+    scale: 0.7,
+    ease: "power3.out"
+  });
+
+  gsap.from("#closeModalBtn", {
+    duration: 0.6,
+    opacity: 0,
+    y: -20,
+    ease: "back.out(1.7)"
+  });
+});
+
+// Close modal
+closeBtn.addEventListener("click", () => {
+  gsap.to("#imageModal img", {
+    duration: 0.5,
+    opacity: 0,
+    scale: 0.8,
+    ease: "power2.in",
+    onComplete: () => {
+      modal.classList.add("hidden");
+      gsap.set("#imageModal img", { opacity: 1, scale: 1 }); // reset state
+    }
+  });
+});
+// Second Modal Button
+const modal2 = document.getElementById("imageModal2");
+const openBtn2 = document.getElementById("openModalBtn2");
+const closeBtn2 = document.getElementById("closeModalBtn2");
+
+// Open modal with GSAP animation
+openBtn2.addEventListener("click", () => {
+  modal2.classList.remove("hidden");
+  gsap.from("#imageModal2 img", {
+    duration: 0.8,
+    opacity: 0,
+    scale: 0.7,
+    ease: "power3.out"
+  });
+
+  gsap.from("#closeModalBtn2", {
+    duration: 0.6,
+    opacity: 0,
+    y: -20,
+    ease: "back.out(1.7)"
+  });
+});
+
+// Close modal
+closeBtn2.addEventListener("click", () => {
+  gsap.to("#imageModal2 img", {
+    duration: 0.5,
+    opacity: 0,
+    scale: 0.8,
+    ease: "power2.in",
+    onComplete: () => {
+      modal2.classList.add("hidden");
+      gsap.set("#imageModal2 img", { opacity: 1, scale: 1 }); // reset state
+    }
+  });
 });
