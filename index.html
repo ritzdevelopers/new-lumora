@@ -19,30 +19,34 @@
   </head>
   <body class="bg-gray-100">
     <!-- Navbar -->
-    <header    style="font-family: CazelRegular" class="z-[999999] w-full bg-[#0E291A] right-0 top-0 fixed lg:w-full">
+    <header
+      style="font-family: CazelRegular"
+      class="z-[999999] w-full bg-[#0E291A] right-0 top-0 fixed lg:w-full"
+    >
       <nav class="relative">
         <ul
           class="flex font-cinzel text-white px-6 lg:px-10 450:py-4 py-4 items-center justify-between lg:justify-evenly"
         >
           <li class="hidden lg:block"><a href="/about-us">About Us</a></li>
           <li class="hidden lg:block">
-            <a class="cursor-pointer" href="/project/avacasa">Projects</a>
+            <a href="/project/avacasa">Projects</a>
           </li>
           <li>
-            <a href="/"
-              ><img
+            <a href="/">
+              <img
                 class="w-[27.5vw] 450:w-[15.5vw] sm:w-[12.5vw] lg:w-44"
                 src="/images/lumoraLogo.png"
                 alt="logo"
-            /></a>
+              />
+            </a>
           </li>
           <li class="hidden lg:block"><a href="/amenities">Amenities</a></li>
-          <li class="hidden lg:block">
-            <a href="/contact-us">Contact Us</a>
-          </li>
+          <li class="hidden lg:block"><a href="/contact-us">Contact Us</a></li>
           <li class="hidden lg:block"><a href="/gallery">Gallery</a></li>
+
+          <!-- Mobile Menu Button -->
           <li class="lg:hidden">
-            <button>
+            <button id="openMenu">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -54,22 +58,26 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+                  d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837-7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
                 ></path>
               </svg>
             </button>
           </li>
         </ul>
+
+        <!-- Mobile Fullscreen Menu -->
         <div
-          class="fixed z-50 top-0 right-0 h-screen w-[100%] 450:w-[40%] bg-greenTheme lg:hidden text-white transform translate-x-full"
+          id="mobileMenu"
+          class="fixed z-[100000] top-0 right-0 h-screen w-screen bg-[#0E291A] lg:hidden text-white translate-x-full"
         >
-          <button class="absolute top-4 right-6 text-2xl">
+          <!-- Close Button -->
+          <button id="closeBtn3" class="absolute top-6 right-6 text-3xl">
             <svg
               stroke="currentColor"
               fill="currentColor"
               stroke-width="0"
               viewBox="0 0 352 512"
-              class="text-mainText"
+              class="text-white"
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -79,16 +87,16 @@
               ></path>
             </svg>
           </button>
+
+          <!-- Menu Links -->
           <ul
-            class="flex flex-col text-mainText items-center justify-center h-full space-y-6 text-xl"
+            class="flex flex-col font-cinzel items-center justify-center h-full space-y-8 text-2xl"
           >
-            <li class="cursor-pointer"><a href="/about-us">About us</a></li>
-            <li class="cursor-pointer">Projects</li>
-            <li class="cursor-pointer"><a href="/amenities">Amenities</a></li>
-            <li class="cursor-pointer">
-              <a href="/contact-us">Contact Us</a>
-            </li>
-            <li class="cursor-pointer"><a href="/gallery">Gallery</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/project/avacasa">Projects</a></li>
+            <li><a href="/amenities">Amenities</a></li>
+            <li><a href="/contact-us">Contact Us</a></li>
+            <li><a href="/gallery">Gallery</a></li>
           </ul>
         </div>
       </nav>
@@ -1364,22 +1372,27 @@
           <!-- Modal 1-->
           <div
             id="imageModal"
-            class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center hidden z-50"
+            class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center hidden z-[99999999]"
           >
             <div class="relative w-[98vw] h-[98vh]">
               <!-- Close Button -->
               <button
                 id="closeModalBtn"
-                class="absolute top-4 right-4 bg-white text-black text-2xl font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition z-[999]"
+                class="absolute top-4 right-4 bg-white text-black text-2xl font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition z-[999999999]"
               >
                 &times;
               </button>
 
               <!-- Image -->
               <img
-                src="./images/s8/lumS8I1.png"
+                src="./images/groundDekstop.jpg"
                 alt="lumora"
-                class="w-full h-full object-cover rounded-xl shadow-2xl"
+                class="w-full md:block hidden h-full object-cover rounded-xl shadow-2xl"
+              />
+              <img
+                src="./images/groundPhone.jpg"
+                alt="lumora"
+                class="w-full block md:hidden h-full object-cover rounded-xl shadow-2xl"
               />
             </div>
           </div>
@@ -1387,22 +1400,28 @@
           <!-- Modal 2-->
           <div
             id="imageModal2"
-            class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center hidden z-50"
+            class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center hidden z-[99999999]"
           >
             <div class="relative w-[98vw] h-[98vh]">
               <!-- Close Button -->
               <button
                 id="closeModalBtn2"
-                class="absolute top-4 right-4 bg-white text-black text-2xl font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition z-[999]"
+                class="absolute top-4 right-4 bg-white text-black text-2xl font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition z-[999999999]"
               >
                 &times;
               </button>
 
               <!-- Image -->
               <img
-                src="./images/s8/lumS8I2.png"
+                src="./images/firstDekstop.jpg"
                 alt="lumora"
-                class="w-full h-full object-cover rounded-xl shadow-2xl"
+                class="w-full h-full hidden md:block object-cover rounded-xl shadow-2xl"
+              />
+
+              <img
+                src="./images/firstMobile.jpg"
+                alt="lumora"
+                class="w-full h-full md:hidden block object-cover rounded-xl shadow-2xl"
               />
             </div>
           </div>
@@ -1412,11 +1431,11 @@
             class="s8Main w-full flex flex-col md:flex-row justify-center items-center gap-6"
           >
             <div
-              class="img w-full md:w-1/2 h-auto border-[5px] border-[#FFFFFF] flex justify-center relative"
+              class="img w-full md:w-1/2 h-[502px] border-[5px] border-[#FFFFFF] flex justify-center relative"
             >
               <img
                 id="openModalBtn"
-                src="./images/s8/lumS8I1.png"
+                src="./images/groundPhone.jpg"
                 class="w-full max-w-[641px] object-cover"
                 alt="lumora"
               />
@@ -1428,11 +1447,11 @@
               </button>
             </div>
             <div
-              class="img w-full md:w-1/2 h-auto flex justify-center relative"
+              class="img w-full md:w-1/2 h-[502px] flex justify-center relative border-[5px] border-[#FFFFFF]"
             >
               <img
                 id="openModalBtn2"
-                src="./images/s8/lumS8I2.png"
+                src="./images/firstDekstop.jpg"
                 class="w-full max-w-[641px] object-cover"
                 alt="lumora"
               />
@@ -1638,7 +1657,7 @@
             we&#x27;ve reimagined what it means to escape the ordinary.
           </p>
           <ul
-            class="flex flex-col  min-w-[150px] text-white gap-3"
+            class="flex flex-col min-w-[150px] text-white gap-3"
             style="font-family: CazelRegular"
           >
             <li
@@ -1658,7 +1677,7 @@
           </ul>
           <div class="sm:w-[33%] md:w-[28%] w-full text-white">
             <p
-              class="font-cinzel sm:text-center  2xl:text-3xl md:text-[2vw] sm:text-[3vw] 450:text-[5vw] text-[7vw]"
+              class="font-cinzel sm:text-center 2xl:text-3xl md:text-[2vw] sm:text-[3vw] 450:text-[5vw] text-[7vw]"
               style="font-family: CazelRegular"
             >
               Address
@@ -1672,7 +1691,7 @@
             </p>
           </div>
           <ul
-            class="flex flex-col gap-2  text-white"
+            class="flex flex-col gap-2 text-white"
             style="font-family: CazelRegular"
           >
             <li
