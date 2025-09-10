@@ -27,6 +27,7 @@ body {
   font-family: "CazelBold";
   src: url(./Cinzel/static/Cinzel-Bold.ttf);
 }
+
 @font-face {
   font-family: "CazelRegular";
   src: url(./Cinzel/static/Cinzel-Regular.ttf);

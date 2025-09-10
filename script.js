@@ -349,3 +349,39 @@ closeBtn2.addEventListener("click", () => {
     }
   });
 });
+
+ document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector("header");
+    let lastScrollTop = 0;
+    let isAnimating = false;
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        // Scroll Down → Navbar hide
+        if (!isAnimating) {
+          isAnimating = true;
+          gsap.to(navbar, {
+            y: "-100%",
+            duration: 0.6,
+            ease: "power3.out",
+            onComplete: () => (isAnimating = false),
+          });
+        }
+      } else {
+        // Scroll Up → Navbar show
+        if (!isAnimating) {
+          isAnimating = true;
+          gsap.to(navbar, {
+            y: "0%",
+            duration: 0.6,
+            ease: "power3.out",
+            onComplete: () => (isAnimating = false),
+          });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative
+    });
+  });
