@@ -2,28 +2,46 @@ const slides = document.querySelector(".slides");
 const leftBtn = document.getElementById("leftBtn");
 const rightBtn = document.getElementById("rightBtn");
 
-let currentIndex = 0;
-const totalSlides = document.querySelectorAll(".sliderCard").length;
+let cardWidth = document.querySelector(".sliderCard").offsetWidth + 16; // card + gap
+let currentOffset = 0;
 
-function slideTo(index, direction) {
-  const offset = -index * (slides.children[0].offsetWidth + 16); // card + gap
+// Slide Right
+function slideRight() {
+  currentOffset -= cardWidth;
   gsap.to(slides, {
-    x: offset,
-    duration: 0.8,
+    x: currentOffset,
+    duration: 0.6,
     ease: "power2.inOut",
-    from: { x: direction === "left" ? offset + 300 : offset - 300 },
+    onComplete: () => {
+      const firstCard = slides.firstElementChild;
+      slides.appendChild(firstCard);
+
+      currentOffset += cardWidth;
+      gsap.set(slides, { x: currentOffset });
+    }
   });
 }
 
-rightBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % totalSlides;
-  slideTo(currentIndex, "right");
-});
+// Slide Left
+function slideLeft() {
+  const lastCard = slides.lastElementChild;
+  slides.insertBefore(lastCard, slides.firstElementChild);
 
-leftBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-  slideTo(currentIndex, "left");
-});
+  currentOffset -= cardWidth;
+  gsap.set(slides, { x: currentOffset });
+
+  currentOffset += cardWidth;
+  gsap.to(slides, {
+    x: currentOffset,
+    duration: 0.6,
+    ease: "power2.inOut"
+  });
+}
+
+// Button events
+rightBtn.addEventListener("click", slideRight);
+leftBtn.addEventListener("click", slideLeft);
+
 
 function sliderHover() {
   document.querySelectorAll(".sliderCard").forEach((card) => {
@@ -216,41 +234,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // Content D1 (heading, para, button)
-  tl.from(".s5ContentD1 h2", {
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-  })
-    .from(
-      ".s5ContentD1 p",
-      {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-      },
-      "-=0.5"
-    )
-    .from(
-      ".s5ContentD1 button",
-      {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.6,
-      },
-      "-=0.4"
-    );
-
-  // Grid features stagger
-  tl.from(
-    ".s5ContentD2 > div",
-    {
-      scale: 0.7,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.2,
-    },
-    "-=0.2"
-  );
+ 
 
   // Overlay image parallax
   gsap.from(".s5 img[alt='lumora']", {
@@ -264,26 +248,6 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // Hover animations for grid items
-  document.querySelectorAll(".s5ContentD2 > div").forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      gsap.to(item, {
-        scale: 1.08,
-        duration: 0.3,
-        boxShadow: "0px 8px 20px rgba(200,154,107,0.4)",
-        borderColor: "#ffffff88",
-      });
-    });
-
-    item.addEventListener("mouseleave", () => {
-      gsap.to(item, {
-        scale: 1,
-        duration: 0.3,
-        boxShadow: "0px 0px 0px rgba(0,0,0,0)",
-        borderColor: "rgba(242,242,242,0.2)",
-      });
-    });
-  });
 
   // Button subtle pulse on hover
   const btn = document.querySelector(".s5ContentD1 button");
