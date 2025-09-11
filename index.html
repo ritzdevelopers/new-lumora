@@ -205,12 +205,12 @@
       >
         <!-- Left Side -->
         <div
-          class="s3left w-full h-[70px] sm:h-[88px] md:w-[88px] md:h-screen bg-[#C89A6B]"
+          class="s3left w-full h-[70px] sm:h-[88px] md:w-[88px] md:min-h-[120vh] bg-[#C89A6B]"
         ></div>
 
         <!-- Right Side -->
         <div
-          class="s3right flex-1 flex flex-col md:flex-row justify-end items-center md:items-start h-[calc(100vh-70px)] sm:h-[calc(100vh-88px)] md:h-screen bg-cover bg-center p-4 md:pb-6 sm:p-6 relative"
+          class="s3right flex-1 flex flex-col md:flex-row justify-end items-center md:items-start h-[calc(100vh-70px)] sm:h-[calc(100vh-88px)] md:min-h-[120vh] bg-cover bg-center p-4 md:pb-6 sm:p-6 relative"
           style="background-image: url('./images/s3/lumS3B.png')"
         >
           <!-- Map Image -->
@@ -778,7 +778,6 @@
           <div
             class="absolute left-6 lg:left-[10rem] xl:left-[28rem] top-1/2 -translate-y-1/2"
           >
-        
             <h2
               style="font-family: CazelBold"
               class="text-[15px] sm:text-[28px] lg:text-[32px] font-[700] text-[#FFFFFF]"
@@ -1429,10 +1428,10 @@
             class="s8Main w-full flex flex-col md:flex-row justify-center items-center gap-6"
           >
             <div
+              id="openModalBtn"
               class="img w-full md:w-1/2 h-[502px] border-[5px] border-[#FFFFFF] flex justify-center relative"
             >
               <img
-                id="openModalBtn"
                 src="./images/groundPhone.jpg"
                 class="w-full max-w-[641px] object-cover"
                 alt="lumora"
@@ -1445,10 +1444,10 @@
               </button>
             </div>
             <div
+              id="openModalBtn2"
               class="img w-full md:w-1/2 h-[502px] flex justify-center relative border-[5px] border-[#FFFFFF]"
             >
               <img
-                id="openModalBtn2"
                 src="./images/firstDekstop.jpg"
                 class="w-full max-w-[641px] object-cover"
                 alt="lumora"
