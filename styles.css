@@ -55,6 +55,34 @@ body {
 }
 
 @font-face {
-  font-family: 'PoppinsLight';
+  font-family: "PoppinsLight";
   src: url(./Poppins/Poppins-Light.ttf);
+}
+@media (min-width: 648px) and (max-width: 998px) {
+  .s1 {
+    background-image: url("/new/lum-Tablet.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .s3right{
+     background-image: url("/new/What\ do\ you\ deserveTablet.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media (max-width: 647px) {
+  .s1 {
+    background-image: url("/new/lum-Phone.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+   .s3right{
+     background-image: url("/new/What\ do\ you\ deservePhone.pngD");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
