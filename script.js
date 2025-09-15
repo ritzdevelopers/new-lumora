@@ -72,7 +72,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Animate content box
   tl.from(".s1Content", {
-    x: -100,
+    y: -100,
     opacity: 0,
     duration: 1,
   });
