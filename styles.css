@@ -87,3 +87,12 @@ body {
     background-size: cover;
   }
 }
+.slides {
+  display: flex;
+  will-change: transform; /* ✅ GPU par render */
+}
+
+.sliderCard {
+  flex: 0 0 auto; /* fixed width cards */
+  min-width: 200px; /* tumhare card size ke hisaab se */
+}

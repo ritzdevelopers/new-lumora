@@ -3,70 +3,81 @@ const leftBtn = document.getElementById("leftBtn");
 const rightBtn = document.getElementById("rightBtn");
 
 let cardWidth = document.querySelector(".sliderCard").offsetWidth + 16; // card + gap
-let currentOffset = 0;
 let autoSlideInterval;
+
+let cards = slides.children;
+let totalCards = cards.length;
+
+// Clone first & last card
+const firstClone = cards[0].cloneNode(true);
+const lastClone = cards[totalCards - 1].cloneNode(true);
+
+slides.appendChild(firstClone);
+slides.insertBefore(lastClone, slides.firstElementChild);
+
+let totalSlides = slides.children.length;
+let currentIndex = 1; // start from 1 (because 0 is lastClone)
+
+// Initial position
+gsap.set(slides, { x: -cardWidth * currentIndex });
+
+// Update Slide with GSAP
+function updateSlide() {
+  gsap.to(slides, {
+    x: -cardWidth * currentIndex,
+    duration: 0.6,
+    ease: "power2.inOut",
+    onComplete: checkLoop
+  });
+}
+
+// Check for clones & reset instantly
+function checkLoop() {
+  if (currentIndex === totalSlides - 1) {
+    // cloneFirst → jump to real first
+    currentIndex = 1;
+    gsap.set(slides, { x: -cardWidth * currentIndex });
+  }
+  if (currentIndex === 0) {
+    // cloneLast → jump to real last
+    currentIndex = totalSlides - 2;
+    gsap.set(slides, { x: -cardWidth * currentIndex });
+  }
+}
 
 // Slide Right
 function slideRight() {
-  currentOffset -= cardWidth;
-  gsap.to(slides, {
-    x: currentOffset,
-    duration: 0.6,
-    ease: "power2.inOut",
-    onComplete: () => {
-      const firstCard = slides.firstElementChild;
-      slides.appendChild(firstCard);
-
-      // next frame pe reset karte hain (jhatka remove ho jata hai)
-      requestAnimationFrame(() => {
-        currentOffset += cardWidth;
-        gsap.set(slides, { x: currentOffset });
-      });
-    }
-  });
+  currentIndex++;
+  updateSlide();
 }
 
 // Slide Left
 function slideLeft() {
-  const lastCard = slides.lastElementChild;
-  slides.insertBefore(lastCard, slides.firstElementChild);
-
-  currentOffset -= cardWidth;
-  gsap.set(slides, { x: currentOffset });
-
-  requestAnimationFrame(() => {
-    currentOffset += cardWidth;
-    gsap.to(slides, {
-      x: currentOffset,
-      duration: 0.6,
-      ease: "power2.inOut"
-    });
-  });
+  currentIndex--;
+  updateSlide();
 }
 
-// Auto Slide Function (Right → Left)
+// Auto Slide
 function startAutoSlide() {
-  autoSlideInterval = setInterval(slideRight, 3000); // har 3 sec me chalega
+  autoSlideInterval = setInterval(slideRight, 3000);
 }
-
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-// Button events
+// Buttons
 rightBtn.addEventListener("click", () => {
   stopAutoSlide();
   slideRight();
   startAutoSlide();
 });
-
 leftBtn.addEventListener("click", () => {
   stopAutoSlide();
   slideLeft();
   startAutoSlide();
 });
 
-// Start auto slide on page load
+// Start
 startAutoSlide();
 
 function sliderHover() {
@@ -126,48 +137,7 @@ window.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-// Section 2 Animations Is Starting From Here
-window.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger);
 
-  // Image animation
-  gsap.from(".s2img", {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: ".s2",
-      start: "top 80%", // jab section 80% viewport me aayega
-      toggleActions: "play none none reverse",
-    },
-  });
-
-  // Content animation
-  gsap.from(".s2Content", {
-    x: 100,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: ".s2",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-  });
-
-  // Staggered inner elements (p, h2, paragraph, button)
-  gsap.from(".s2Content > p, h2", {
-    y: 30,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.2,
-    delay: 0.3,
-    scrollTrigger: {
-      trigger: ".s2",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-    },
-  });
-});
 
 // Section 3 Animations Is Starting From Here
 window.addEventListener("DOMContentLoaded", () => {
