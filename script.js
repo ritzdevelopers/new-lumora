@@ -1,64 +1,46 @@
+const slides = document.querySelector(".slides");
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const slidesContainer = document.querySelector(".slides");
-    const slideCards = document.querySelectorAll(".sliderCard");
-    const leftBtn = document.getElementById("leftBtn");
-    const rightBtn = document.getElementById("rightBtn");
+let cardWidth = document.querySelector(".sliderCard").offsetWidth + 16; // card + gap
+let currentOffset = 0;
 
-    let currentIndex = 0;
-    const totalSlides = slideCards.length;
+// Slide Right
+function slideRight() {
+  currentOffset -= cardWidth;
+  gsap.to(slides, {
+    x: currentOffset,
+    duration: 0.6,
+    ease: "power2.inOut",
+    onComplete: () => {
+      const firstCard = slides.firstElementChild;
+      slides.appendChild(firstCard);
 
-    slidesContainer.style.transition = "transform 0.6s ease-in-out";
-
-    function updateSlide() {
-      const cardWidth = slideCards[0].offsetWidth + 16; // width + gap
-      slidesContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      currentOffset += cardWidth;
+      gsap.set(slides, { x: currentOffset });
     }
-
-    function nextSlide() {
-      const cardWidth = slideCards[0].offsetWidth + 16;
-      const visibleCards = Math.floor(document.querySelector(".slider").offsetWidth / cardWidth);
-
-      // if last card is about to fully show
-      if (currentIndex >= totalSlides - visibleCards) {
-        currentIndex = 0; // reset to first card
-      } else {
-        currentIndex++;
-      }
-      updateSlide();
-    }
-
-    function prevSlide() {
-      if (currentIndex === 0) {
-        currentIndex = totalSlides - 1;
-      } else {
-        currentIndex--;
-      }
-      updateSlide();
-    }
-
-    rightBtn.addEventListener("click", () => {
-      nextSlide();
-      resetAutoSlide();
-    });
-
-    leftBtn.addEventListener("click", () => {
-      prevSlide();
-      resetAutoSlide();
-    });
-
-    // Auto slide every 2s
-    let autoSlide = setInterval(nextSlide, 2000);
-
-    function resetAutoSlide() {
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, 2000);
-    }
-
-    window.addEventListener("resize", updateSlide);
-
-    updateSlide();
   });
+}
+
+// Slide Left
+function slideLeft() {
+  const lastCard = slides.lastElementChild;
+  slides.insertBefore(lastCard, slides.firstElementChild);
+
+  currentOffset -= cardWidth;
+  gsap.set(slides, { x: currentOffset });
+
+  currentOffset += cardWidth;
+  gsap.to(slides, {
+    x: currentOffset,
+    duration: 0.6,
+    ease: "power2.inOut"
+  });
+}
+
+// Button events
+rightBtn.addEventListener("click", slideRight);
+leftBtn.addEventListener("click", slideLeft);
 
 
 function sliderHover() {
