@@ -17,7 +17,7 @@
       defer
     ></script>
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-gray-100 overflow-x-hidden">
     <!-- Navbar -->
     <header
       style="font-family: CazelRegular"
@@ -30,8 +30,8 @@
           <li class="hidden opacity-0 lg:block">
             <a href="/about-us">About Us</a>
           </li>
-          <li class="lg:block">
-            hidden
+          <li class="lg:block hidden">
+            
             <a href="/project/avacasa">Project</a>
           </li>
           <li>
@@ -102,7 +102,7 @@
             class="flex flex-col font-cinzel items-center justify-center h-full space-y-8 text-2xl"
           >
             <li><a class="opacity-0" href="/about-us">About Us</a></li>
-            <li><a class=" " href="/project/avacasa">Projects</a></li>
+            <li><a  href="/project/avacasa">Projects</a></li>
             <li><a class="opacity-0" href="/amenities">Amenities</a></li>
             <li><a class="opacity-0" href="/contact-us">Contact Us</a></li>
             <li><a class="opacity-0" href="/gallery">Gallery</a></li>
@@ -112,9 +112,9 @@
     </header>
 
     <!-- Dummy content for scroll -->
-    <main class="mt-14 bg-[#FFFFFF]">
+    <main class="mt-14 bg-[#FFFFFF] ">
       <section
-        class="s1 md:min-h-[115vh] min-h-screen w-screen flex items-center pl-6 md:pl-20"
+        class="s1 md:min-h-[115vh] overflow-x-hidden min-h-screen w-screen flex items-center pl-6 md:pl-20"
         style="
           background-image: url(./new/lum-Desktop.png);
           background-position: center;
@@ -144,9 +144,9 @@
 
       <!-- Section 2 Is Starting From Here  -->
       <section
-        class="s2 w-screen min-h-[80vh] bg-[#FEF4E3] relative px-6 md:pl-20 py-12"
+        class="s2 w-screen overflow-x-hidden min-h-[80vh] bg-[#FEF4E3] relative px-6 md:pl-20 py-12"
       >
-        <div class="flex flex-col md:flex-row gap-8 md:gap-12">
+        <div class="flex flex-col overflow-y-hidden md:flex-row gap-8 md:gap-12">
           <!-- Left Side Image Div  -->
           <div class="s2img w-full hidden xl:block max-w-[586px] h-[568.99px]">
             <img
@@ -158,7 +158,7 @@
 
           <!-- Right Side Content Div  -->
           <div
-            class="s2Content max-w-[554px] text-center md:text-left space-y-4 flex flex-col"
+            class="s2Content overflow-y-hidden max-w-[554px] text-center md:text-left space-y-4 flex flex-col"
           >
             <p
               class="text-[#0E291A] text-[18px] md:text-[20px] font-[400]"
@@ -189,7 +189,7 @@
             </p>
             <button
               style="font-family: CazelRegular"
-              class="mt-4 w-[198px] px-6 py-3 bg-[#0E291A] text-[#C89A6B] text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] transition-all"
+              class="mt-4 w-[198px] m-auto md:m-0 px-6 py-3 bg-[#0E291A] text-[#C89A6B] text-[16px] md:text-[18px] font-[500] hover:bg-[#153e26] transition-all"
             >
               Explore Now
             </button>
@@ -240,18 +240,18 @@
 
           <!-- List + Button -->
           <div
-            class="relative md:absolute md:top-16 md:left-[-70px] flex flex-col gap-4 sm:gap-6 md:gap-8 z-[50] max-w-[92%] sm:max-w-[700px] mt-6 md:mt-0"
+            class="relative md:absolute md:top-16 md:left-[-70px] flex flex-col gap-6 md:gap-8 z-[50] max-w-[92%] sm:max-w-[700px] mt-6 md:mt-0"
           >
             <div class="flex justify-start sm:ml-20 items-center">
               <p
                 style="font-family: CazelBold"
-                class="font-[700] text-[14px] sm:text-[18px] md:text-[50px] text-white"
+                class="font-[700] text-[18px] md:text-[50px] text-white"
               >
                 What You Deserve
               </p>
             </div>
             <div class="s3list">
-              <ul class="flex flex-col gap-4 sm:gap-6 md:gap-[40px]">
+              <ul class="flex flex-col gap-[5rem] md:gap-[40px]">
                 <li
                   style="font-family: CazelBold"
                   class="flex gap-2 sm:gap-3 md:gap-8 items-center"
@@ -791,7 +791,7 @@
           >
             <h2
               style="font-family: CazelBold"
-              class="text-[28px] lg:text-[32px] font-[700] text-[#FFFFFF]"
+              class="text-[28px] lg:text-[32px] font-[600] text-[#FFFFFF]"
             >
               Download Brochure
             </h2>
@@ -1182,11 +1182,11 @@
       <section
         class="s6 w-screen min-h-screen bg-[#F8F8F8] flex justify-center px-4 sm:px-6 lg:px-12 py-12"
       >
-        <div class="flex flex-col gap-16 w-full max-w-[1300px]">
+        <div class="flex flex-col gap-6 lg:gap-16 w-full max-w-[1300px]">
           <!-- Row 1 -->
           <div class="flex flex-col gap-6">
             <!-- Heading -->
-            <div class="max-w-2xl">
+            <div class="max-w-2xl md:text-start text-center">
               <h2
                 style="font-family: CazelBold"
                 class="text-[#0E291A] text-[32px] sm:text-[40px] md:text-[46px] font-[700] leading-tight"
@@ -1329,20 +1329,20 @@
 
       <!-- Section 7 Is Starting From Here  -->
       <section
-        class="s7 w-screen min-h-screen flex flex-col lg:flex-row justify-center relative gap-8"
+        class="s7 w-screen min-h-screen flex flex-col lg:py-20 lg:flex-row justify-center relative gap-8"
       >
         <!-- Left Image -->
-        <div class="s7img w-full lg:w-[711px] flex justify-start">
+        <div class="s7img w-full lg:w-[711px]  flex justify-start">
           <img
             src="./images/updated/711x740.jpg"
             alt="lumora"
-            class="w-full h-auto object-cover"
+            class="w-full h-auto object-contain"
           />
         </div>
 
         <!-- Right Content -->
         <div
-          class="s7Content w-full lg:w-[524px] flex flex-col justify-center gap-6 md:pt-6 text-center lg:text-left p-4"
+          class="s7Content w-full lg:w-[524px] flex flex-col justify-center items-center gap-4 md:pt-10 text-center lg:text-left p-4"
         >
           <h2
             style="font-family: CazelBold"
@@ -1372,7 +1372,7 @@
         </div>
 
         <!-- Decorative Circle (absolute for large, reposition on small) -->
-        <div class="absolute right-[10rem] top-2 hidden 2xl:block">
+        <div class="absolute right-[10rem] top-1 hidden 2xl:block">
           <img
             src="./images/s2/lumS2Circle.png"
             alt="lumora"
@@ -1605,7 +1605,7 @@
         <div
           class="flex flex-col lg:flex-row justify-center items-center gap-8 w-full max-w-[1310px] relative z-10"
         >
-          <h2 class="text-[26px]" style="font-family: CazelBold">
+          <h2 class="text-[26px] md:hidden block" style="font-family: CazelBold">
             Founder Partner & Principle Architects At Confluence
           </h2>
           <!-- Left Card -->

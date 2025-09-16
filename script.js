@@ -4,6 +4,7 @@ const rightBtn = document.getElementById("rightBtn");
 
 let cardWidth = document.querySelector(".sliderCard").offsetWidth + 16; // card + gap
 let currentOffset = 0;
+let autoSlideInterval;
 
 // Slide Right
 function slideRight() {
@@ -16,8 +17,11 @@ function slideRight() {
       const firstCard = slides.firstElementChild;
       slides.appendChild(firstCard);
 
-      currentOffset += cardWidth;
-      gsap.set(slides, { x: currentOffset });
+      // next frame pe reset karte hain (jhatka remove ho jata hai)
+      requestAnimationFrame(() => {
+        currentOffset += cardWidth;
+        gsap.set(slides, { x: currentOffset });
+      });
     }
   });
 }
@@ -30,18 +34,40 @@ function slideLeft() {
   currentOffset -= cardWidth;
   gsap.set(slides, { x: currentOffset });
 
-  currentOffset += cardWidth;
-  gsap.to(slides, {
-    x: currentOffset,
-    duration: 0.6,
-    ease: "power2.inOut"
+  requestAnimationFrame(() => {
+    currentOffset += cardWidth;
+    gsap.to(slides, {
+      x: currentOffset,
+      duration: 0.6,
+      ease: "power2.inOut"
+    });
   });
 }
 
-// Button events
-rightBtn.addEventListener("click", slideRight);
-leftBtn.addEventListener("click", slideLeft);
+// Auto Slide Function (Right → Left)
+function startAutoSlide() {
+  autoSlideInterval = setInterval(slideRight, 3000); // har 3 sec me chalega
+}
 
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+}
+
+// Button events
+rightBtn.addEventListener("click", () => {
+  stopAutoSlide();
+  slideRight();
+  startAutoSlide();
+});
+
+leftBtn.addEventListener("click", () => {
+  stopAutoSlide();
+  slideLeft();
+  startAutoSlide();
+});
+
+// Start auto slide on page load
+startAutoSlide();
 
 function sliderHover() {
   document.querySelectorAll(".sliderCard").forEach((card) => {

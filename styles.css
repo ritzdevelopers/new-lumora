@@ -58,15 +58,16 @@ body {
   font-family: "PoppinsLight";
   src: url(./Poppins/Poppins-Light.ttf);
 }
+
 @media (min-width: 648px) and (max-width: 998px) {
   .s1 {
-    background-image: url("/new/lum-Tablet.png");
+    background-image: url("/new/lum-Tablet.png") !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   .s3right{
-     background-image: url("/new/What\ do\ you\ deserveTablet.png");
+     background-image: url("/new/wydtab.png") !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,13 +75,13 @@ body {
 }
 @media (max-width: 647px) {
   .s1 {
-    background-image: url("/new/lum-Phone.png");
+    background-image: url("/new/lum-Phone.png") !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
    .s3right{
-     background-image: url("/new/What\ do\ you\ deservePhone.pngD");
+     background-image: url("/new/wydphone.png") !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
