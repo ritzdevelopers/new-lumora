@@ -1,84 +1,65 @@
-const slides = document.querySelector(".slides");
-const leftBtn = document.getElementById("leftBtn");
-const rightBtn = document.getElementById("rightBtn");
 
-let cardWidth = document.querySelector(".sliderCard").offsetWidth + 16; // card + gap
-let autoSlideInterval;
+  document.addEventListener("DOMContentLoaded", () => {
+    const slidesContainer = document.querySelector(".slides");
+    const slideCards = document.querySelectorAll(".sliderCard");
+    const leftBtn = document.getElementById("leftBtn");
+    const rightBtn = document.getElementById("rightBtn");
 
-let cards = slides.children;
-let totalCards = cards.length;
+    let currentIndex = 0;
+    const totalSlides = slideCards.length;
 
-// Clone first & last card
-const firstClone = cards[0].cloneNode(true);
-const lastClone = cards[totalCards - 1].cloneNode(true);
+    slidesContainer.style.transition = "transform 0.6s ease-in-out";
 
-slides.appendChild(firstClone);
-slides.insertBefore(lastClone, slides.firstElementChild);
+    function updateSlide() {
+      const cardWidth = slideCards[0].offsetWidth + 16; // width + gap
+      slidesContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
 
-let totalSlides = slides.children.length;
-let currentIndex = 1; // start from 1 (because 0 is lastClone)
+    function nextSlide() {
+      const cardWidth = slideCards[0].offsetWidth + 16;
+      const visibleCards = Math.floor(document.querySelector(".slider").offsetWidth / cardWidth);
 
-// Initial position
-gsap.set(slides, { x: -cardWidth * currentIndex });
+      // if last card is about to fully show
+      if (currentIndex >= totalSlides - visibleCards) {
+        currentIndex = 0; // reset to first card
+      } else {
+        currentIndex++;
+      }
+      updateSlide();
+    }
 
-// Update Slide with GSAP
-function updateSlide() {
-  gsap.to(slides, {
-    x: -cardWidth * currentIndex,
-    duration: 0.6,
-    ease: "power2.inOut",
-    onComplete: checkLoop
+    function prevSlide() {
+      if (currentIndex === 0) {
+        currentIndex = totalSlides - 1;
+      } else {
+        currentIndex--;
+      }
+      updateSlide();
+    }
+
+    rightBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    leftBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    // Auto slide every 2s
+    let autoSlide = setInterval(nextSlide, 2000);
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(nextSlide, 2000);
+    }
+
+    window.addEventListener("resize", updateSlide);
+
+    updateSlide();
   });
-}
 
-// Check for clones & reset instantly
-function checkLoop() {
-  if (currentIndex === totalSlides - 1) {
-    // cloneFirst → jump to real first
-    currentIndex = 1;
-    gsap.set(slides, { x: -cardWidth * currentIndex });
-  }
-  if (currentIndex === 0) {
-    // cloneLast → jump to real last
-    currentIndex = totalSlides - 2;
-    gsap.set(slides, { x: -cardWidth * currentIndex });
-  }
-}
-
-// Slide Right
-function slideRight() {
-  currentIndex++;
-  updateSlide();
-}
-
-// Slide Left
-function slideLeft() {
-  currentIndex--;
-  updateSlide();
-}
-
-// Auto Slide
-function startAutoSlide() {
-  autoSlideInterval = setInterval(slideRight, 3000);
-}
-function stopAutoSlide() {
-  clearInterval(autoSlideInterval);
-}
-
-// Buttons
-rightBtn.addEventListener("click", () => {
-  stopAutoSlide();
-  slideRight();
-  startAutoSlide();
-});
-leftBtn.addEventListener("click", () => {
-  stopAutoSlide();
-  slideLeft();
-  startAutoSlide();
-});
-
-// Start
-startAutoSlide();
 
 function sliderHover() {
   document.querySelectorAll(".sliderCard").forEach((card) => {
