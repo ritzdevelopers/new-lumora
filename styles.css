@@ -108,15 +108,18 @@ body {
     align-items: center;
   }
   .s2alImg {
-    width: 50%;
+    width: auto;
     height: 100%;
   }
   .s2alImg .img {
     object-fit: cover;
   }
   .s2alRght {
-    width: auto;
-    align-items: start;
+    width: 1000px !important;
+    align-items: center !important;
     padding: 20px;
+  }
+  .s2alRghbtn{
+    align-self:center !important;
   }
 }
