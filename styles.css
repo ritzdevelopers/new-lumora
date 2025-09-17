@@ -101,3 +101,20 @@ body {
 .cnzl {
   font-family: "Cinzel", serif;
 }
+@media (min-width: 2700px) {
+  .s2al {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .s2alImg {
+    width: 50%;
+    height: 100%;
+  }
+  .s2alImg .img {
+    object-fit: cover;
+  }
+  .s2alRght {
+    width: auto;
+  }
+}
