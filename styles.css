@@ -101,7 +101,7 @@ body {
 .cnzl {
   font-family: "Cinzel", serif;
 }
-@media (min-width: 2700px) {
+@media (min-width: 2649px) {
   .s2al {
     display: flex;
     justify-content: center;
@@ -116,5 +116,7 @@ body {
   }
   .s2alRght {
     width: auto;
+    align-items: start;
+    padding: 20px;
   }
 }
